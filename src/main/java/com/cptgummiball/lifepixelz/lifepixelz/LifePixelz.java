@@ -40,22 +40,22 @@ public class LifePixelz extends Application {
         logTextArea.setEditable(false);
         logTextArea.setWrapText(true);
 
-        // Stellen Sie sicher, dass der ScrollPane das TextArea enthält und die richtige Größe hat
+        // Ensure that the scroll panel contains the text dyea and has the right size
         ScrollPane scrollPane = new ScrollPane(logTextArea);
-        scrollPane.setFitToWidth(true);  // ScrollPane passt sich der Breite an
-        scrollPane.setPrefWidth(300);  // Maximale Breite des ScrollPane
-        scrollPane.setPrefHeight(HEIGHT * CELL_SIZE);  // Höhe des ScrollPane auf die gleiche wie das Canvas setzen
+        scrollPane.setFitToWidth(true);  // Scroll panel adapts to the width
+        scrollPane.setPrefWidth(300);  // Maximum width of the scroll pan
+        scrollPane.setPrefHeight(HEIGHT * CELL_SIZE);  // Place the height of the scroll pan on the same as the canvas
 
         BorderPane root = new BorderPane();
-        root.setCenter(new StackPane(canvas));  // Canvas in der Mitte des Layouts
-        root.setRight(scrollPane);  // ScrollPane nach rechts verschieben
+        root.setCenter(new StackPane(canvas));  // Canvas in the middle of the layout
+        root.setRight(scrollPane);  // Move scroll panels to the right
 
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.setTitle("LifePixelz Simulation");
         primaryStage.show();
 
-        // Initialisierung der Pixel
+        // Initialization of the pixel
         for (int i = 0; i < 100; i++) {
             int x = random.nextInt(WIDTH);
             int y = random.nextInt(HEIGHT);
@@ -89,7 +89,7 @@ public class LifePixelz extends Application {
             p.withdrawFromLager(grid);
             p.fight(pixels);
 
-            // Paaren
+            // mating
             for (Pixel other : pixels) {
                 if (other != p && p.isAdjacent(other)) {
                     p.pair(other);
@@ -106,8 +106,8 @@ public class LifePixelz extends Application {
             pixels.add(new Pixel(random.nextInt(WIDTH), random.nextInt(HEIGHT)));
         }
 
-        grid.updateResources();  // Ressourcen aktualisieren
-        grid.regenerateResources();  // Ressourcen erneuern
+        grid.updateResources();  // Update resources
+        grid.regenerateResources();  // Renew resources
     }
 
     private void render() {

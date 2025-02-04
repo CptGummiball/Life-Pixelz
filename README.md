@@ -1,53 +1,55 @@
 # LifePixelz Simulation
 
-LifePixelz ist eine einfache Simulation, die das Verhalten von Pixeln in einem Gitter mit Ressourcen und Lagern nachbildet. Die Pixel interagieren mit Ressourcen, bauen Gebäude und kämpfen miteinander. Diese Simulation nutzt JavaFX, um die Interaktionen visuell darzustellen.
+LifePixelz is a simple simulation that replicates the behavior of pixels in a grid with resources and storage buildings. The pixels interact with resources, construct buildings, and engage in combat with each other. This simulation uses JavaFX to visually represent the interactions.
 
-**Hinweis:** Dieses Projekt ist ein **Work in Progress (WIP)**. Es gibt noch viele Verbesserungsmöglichkeiten und bekannte Probleme, die behoben werden müssen.
+**Note:** This project is a **Work in Progress (WIP)**. There are still many areas for improvement and known issues that need to be addressed.
+
+Additionally, the code currently contains unused methods that are remnants of the original version. These methods may still be relevant for future versions.
 
 ## Features
 
-- **Pixel**: Kleine Einheiten, die auf dem Gitter leben, sich bewegen, Ressourcen abbauen, Gebäude errichten und miteinander kämpfen.
-- **Ressourcen**: Abbaubare Felder, die sich mit der Zeit regenerieren, wenn sie verbraucht werden.
-- **Gebäude (Lager)**: Pixel können an bestimmten Stellen Gebäude errichten, um Ressourcen zu speichern.
-- **Kampf**: Pixel können miteinander kämpfen und dabei Energie verlieren.
-- **Log**: Alle Aktionen der Pixel werden in einem Log angezeigt, das den Zustand der Simulation verfolgt.
-- **Regenerierung der Ressourcen**: Ressourcen erneuern sich mit einer Wahrscheinlichkeit und bleiben nach dem Abbau weiterhin im Gitter.
+- **Pixels**: Small entities that live in the grid, move around, collect resources, construct buildings, and engage in combat.
+- **Resources**: Mineable fields that regenerate over time after being depleted.
+- **Buildings (Storage)**: Pixels can construct buildings in designated areas to store resources.
+- **Combat**: Pixels can fight each other, losing energy in the process.
+- **Log**: All pixel actions are recorded in a log that tracks the simulation state.
+- **Resource Regeneration**: Resources regenerate over time with a certain probability and remain in the grid after depletion for future use.
 
-## Funktionsweise
+## Functionality
 
-1. Beim Starten des Programms wird ein Gitter angezeigt, auf dem Pixel leben.
-2. Die Pixel bewegen sich zufällig und interagieren mit Ressourcen, Lagern und anderen Pixeln.
-3. Das Log-Fenster zeigt alle wichtigen Aktionen der Pixel an, wie das Abbauen von Ressourcen, den Bau von Lagern und den Kampf.
-4. Ressourcen regenerieren sich mit der Zeit, aber nur, wenn sie abgebaut wurden, bleiben sie im Gitter und können wiederverwendet werden.
+1. When the program starts, a grid is displayed where pixels reside.
+2. The pixels move randomly and interact with resources, storage buildings, and other pixels.
+3. The log window displays all major actions performed by pixels, such as resource collection, building construction, and combat.
+4. Resources regenerate over time but only if they have been depleted. They remain in the grid and can be reused.
 
-## Architektur
+## Architecture
 
-### Klassen:
+### Classes:
 
-1. **LifePixelz (Main-Klasse)**: Startet die Anwendung und verwaltet die Simulation.
-2. **Grid**: Repräsentiert das Gitter, das die Zellen enthält, in denen Pixel leben. Es enthält Methoden zur Ressourcengenerierung und -erneuerung.
-3. **Cell**: Repräsentiert eine einzelne Zelle im Gitter, die entweder leer, eine Ressource oder ein Gebäude sein kann.
-4. **Pixel**: Repräsentiert ein Pixel, das sich über das Gitter bewegt, Ressourcen abbaut, Kämpfe ausführt und Gebäude errichtet.
+1. **LifePixelz (Main Class)**: Starts the application and manages the simulation.
+2. **Grid**: Represents the grid containing the cells where pixels live. It includes methods for resource generation and renewal.
+3. **Cell**: Represents an individual cell in the grid, which can be empty, a resource, or a building.
+4. **Pixel**: Represents a pixel that moves across the grid, collects resources, engages in combat, and constructs buildings.
 
-### Funktionsweise:
+### Functionality:
 
-- **Zellen (Cell)** können drei Zustände haben:
-  - **empty**: Eine leere Zelle, auf der ein Pixel ein Gebäude errichten kann.
-  - **resource**: Eine Ressource, die abgebaut werden kann.
-  - **building**: Ein Gebäude (Lager), das von Pixeln genutzt wird, um Ressourcen zu speichern.
-  
-- **Simulation**: Die Simulation läuft in einem eigenen Thread, der in regelmäßigen Abständen das Gitter aktualisiert, Pixel bewegt und deren Aktionen ausführt.
+- **Cells (Cell)** can have three states:
+    - **empty**: An empty cell where a pixel can construct a building.
+    - **resource**: A resource that can be mined.
+    - **building**: A building (storage) used by pixels to store resources.
 
-## Beispielansicht
+- **Simulation**: The simulation runs in a separate thread that updates the grid, moves pixels, and executes their actions at regular intervals.
+
+## Example View
 
 ![LifePixelz Screenshot](https://github.com/CptGummiball/Life-Pixelz/blob/main/screenshot.PNG)
 
-> Ein Screenshot der LifePixelz Simulation (wenn du das Repository auf deinem Rechner ausführst, wirst du die Ansicht sehen können).
+> A screenshot of the LifePixelz simulation (if you run the repository on your local machine, you will be able to see the view).
 
-## Mitwirken
+## Contributing
 
-Wenn du Verbesserungsvorschläge hast oder zur Weiterentwicklung beitragen möchtest, bist du herzlich eingeladen, eine Pull-Anfrage zu stellen!
+If you have suggestions for improvements or would like to contribute to the development, feel free to submit a pull request!
 
-## Lizenz
+## License
 
-Dieses Projekt ist unter der MIT-Lizenz lizenziert - siehe [LICENSE](LICENSE) für Details.
+This project is licensed under the MIT License - see [LICENSE](LICENSE) for details.

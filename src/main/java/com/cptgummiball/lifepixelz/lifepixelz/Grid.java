@@ -4,21 +4,21 @@ public class Grid {
     private final int width;
     private final int height;
     private final Cell[][] cells;
-    private static final double RENEWAL_RATE = 0.1; // 10% der Ressourcen erneuern sich pro Zeiteinheit
+    private static final double RENEWAL_RATE = 0.1; // 10% of resources renew themselves per unit of time
 
     public Grid(int width, int height) {
         this.width = width;
         this.height = height;
         this.cells = new Cell[width][height];
 
-        // Initialisiere die Zellen und übergib x und y Koordinaten
+        // Initialize the cells and overgust X and Y coordinates
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                cells[x][y] = new Cell(x, y); // Übergabe der Koordinaten
+                cells[x][y] = new Cell(x, y); // Handover of the coordinates
             }
         }
 
-        // Zufällig Ressourcen auf der Karte platzieren
+        // Randomly place resources on the map
         generateResources();
     }
 
@@ -28,22 +28,22 @@ public class Grid {
             int y = (int) (Math.random() * height);
             if (cells[x][y].getType().equals("empty")) {
                 cells[x][y].setType("resource");
-                cells[x][y].setAge(0); // Ressourcenalter auf 0 setzen
+                cells[x][y].setAge(0); // Set resource age to 0
             }
         }
     }
 
 
     public void regenerateResources() {
-        // Ressourcen erneuern sich mit einer gewissen Wahrscheinlichkeit
+        // Resources renew themselves with a certain probability
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
                 Cell cell = cells[x][y];
                 if (cell.getType().equals("resource") && cell.isConsumed()) {
-                    // Erneuerung der Ressource mit einer Wahrscheinlichkeit
+                    // Renewal of the resource with a probability
                     if (Math.random() < RENEWAL_RATE) {
-                        cell.resetConsumed();  // Setzt das Flag zurück und die Ressource ist wieder verfügbar
-                        cell.setAge(0); // Ressource erneuert sich
+                        cell.resetConsumed();  // Reset the flag and the resource is available again
+                        cell.setAge(0); // Resource renews itself
                     }
                 }
             }
@@ -58,12 +58,12 @@ public class Grid {
     }
 
     public void updateResources() {
-        // Ressourcenalter erhöhen und verbrauchen
+        // Increase and consume resource age
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
                 Cell cell = cells[x][y];
                 if (cell.getType().equals("resource")) {
-                    // Ressource altert mit der Zeit
+                    // Resource ages over time
                     cell.incrementAge();
                 }
             }

@@ -1,10 +1,10 @@
 package com.cptgummiball.lifepixelz.lifepixelz;
 
 public class Cell {
-    private String type = "empty"; // Standardmäßig leer
-    private int age = 0; // Alter der Ressource (für Verbrauch und Erneuerung)
-    private int x, y; // Position der Zelle im Grid
-    private boolean consumed = false; // Flag, ob die Ressource verbraucht wurde
+    private String type = "empty"; // empty by default
+    private int age = 0; // Age of the resource (for consumption and renewal)
+    private int x, y; // Position of the cell in the grid
+    private boolean consumed = false; // Flag, whether the resource was used up
 
     public Cell(int x, int y) {
         this.x = x;
@@ -47,7 +47,7 @@ public class Cell {
         this.consumed = false;
     }
 
-    // Getter für die Koordinaten
+    // Getter for the coordinates
     public int getX() {
         return x;
     }
